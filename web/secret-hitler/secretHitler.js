@@ -224,7 +224,7 @@ function showVote(name, vote){
       break
   }
   var newimage = document.createElement("img")
-  newimage.src = image
+  newimage.src = "secret-hitler/" + image
   newimage.className = "voteIndicator"
   document.getElementById(name + "div").appendChild(newimage)
   setTimeout(function(){newimage.remove()},5000)
