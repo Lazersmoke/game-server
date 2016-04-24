@@ -9,6 +9,10 @@ model.onmessage = function(e){
   if(e.startsWith("Ask|")){
     question = e.split("|")[1]
     switch (question){
+      case "Return Kitten Location":
+        statusAlert("Return the Kitten to the deck","Enter a number of cards down to place the exploding kitten")
+        sock.send("Resp|" + prompt("How many cards down would you like to return the kitten?"))
+        break
       case "Action?":
         statusAlert("Take your turn","Choose the card from your hand you want to play, or draw a card to end your turn.")
         model.kittens.allowCardClick = true

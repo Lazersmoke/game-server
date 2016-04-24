@@ -26,7 +26,7 @@ sock.onmessage = function(e){
   if(e.data.startsWith("Stop|")){
     var reason = e.data.split("|").splice(1).join(" ")
     alert(reason)
-    setTimeout(function(){location.reload()}, 5000)
+    setTimeout(function(){location.reload()}, 1000)
   }
   if(e.data.startsWith("Shards: ")){
     if(model.lastShards == e.data){return;}
@@ -82,7 +82,7 @@ sock.onmessage = function(e){
 }
 
 function processShards(data){
-  return data.split("\n").slice(1).map(function(e){return e.split(": ")})
+  return data.split("\n").slice(1).map(function(e){return e.trim().split(": ")})
 }
 function addPlayer(name, filename, change = false){
   filename = filename || model.defaultPlayer
